@@ -1,21 +1,22 @@
-export const save = newNote => ({
-  type: 'SAVE',
-  payload: newNote,
+export const like = (author, booksId) => ({
+  type: 'LIKE',
+  payload: { author, booksId },
 });
 
 
-export const edit = (newNote, key) => ({
-  type: 'EDIT',
-  payload: { newNote, key },
+export const dislike = (author, booksId) => ({
+  type: 'DISLIKE',
+  payload: { author, booksId },
 });
 
-export const load = newNoteStorage => ({
+export const load = newBooksStorage => ({
   type: 'LOAD',
-  payload: newNoteStorage,
+  payload: newBooksStorage,
 });
 
 export default {
-  save,
-  edit,
+  like,
+  dislike,
+  load,
 };
 

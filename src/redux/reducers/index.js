@@ -1,6 +1,6 @@
 import { combineReducers } from 'redux';
-import saveState from './saveState';
+import booksState from './booksState';
 
 export default combineReducers({
-  saveState,
+  booksState,
 });
