@@ -1,4 +1,7 @@
 import React, { Component } from 'react';
+import { connect } from 'react-redux';
+import { load } from './redux/actions';
+
 import './App.css';
 import SideBar from './components/sidebar/sidebar';
 import RightPane from './components/rightPane';
@@ -12,9 +15,15 @@ class App extends Component {
   }
 
   componentDidMount() {
-    this.setState({
-      sync: 1,
-    });
+    fetch('/read')
+      .then((response) => {
+        console.log('response: ', response);
+        return response.json();
+      })
+      .then((response) => {
+        console.log('response JSON: ', response);
+        this.props.loadBooks(response);
+      });
   }
 
   render() {
@@ -27,4 +36,12 @@ class App extends Component {
   }
 }
 
-export default App;
+const mapStateToProps = state => ({
+  booksStorage: state.booksState.booksStorage,
+});
+
+const mapDispatchToProps = dispatch => ({
+  loadBooks: (newNoteStorage) => { dispatch(load(newNoteStorage)); },
+});
+
+export default connect(mapStateToProps, mapDispatchToProps)(App);
