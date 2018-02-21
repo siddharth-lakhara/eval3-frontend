@@ -8,8 +8,8 @@ class DisplayBooks extends Component {
     for (const authorProp in bookObject) {
       for (const bookElem in bookObject[authorProp]) {
         return (<BookCard
-          Name={bookObject.authorProp[bookElem].Name}
-          rating={bookObject.authorProp[bookElem].rating}
+          Name={bookObject[authorProp][bookElem].Name}
+          rating={bookObject[authorProp][bookElem].rating}
           // like
           // like={bookObject.authorProp[bookElem].like}
           author={authorProp}
