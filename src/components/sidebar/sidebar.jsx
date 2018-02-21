@@ -5,8 +5,9 @@ class SideBar extends Component {
   render() {
     return (
       <div className="sideBar">
-                I'm SideBar
-          </div>
+                Bs
+        <button className="sideBar-sync">SYNC</button>
+      </div>
     );
   }
 }
